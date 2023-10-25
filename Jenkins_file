@@ -1,25 +1,61 @@
-pipeline {
-    agent any
     stages {
         stage('Build') {
             steps {
-                echo "Build stage executed at ${env.TIMESTAMP} by ${env.USER} on ${env.NODE_NAME}"
+                script {
+                    def stageName = "Build"
+                    def currentDate = new Date()
+                    def userName = currentBuild.rawBuild.getCause(hudson.model.Cause$UserIdCause).getUserName()
+                    def agentName = env.NODE_NAME
+
+                    echo "Stage: $stageName - Date and Time: $currentDate"
+                    echo "Executed by: $userName"
+                    echo "Agent: $agentName"
+                }
             }
         }
+
         stage('Test') {
             steps {
-                echo "Test stage executed at ${env.TIMESTAMP} by ${env.USER} on ${env.NODE_NAME}"
+                script {
+                    def stageName = "Test"
+                    def currentDate = new Date()
+                    def userName = currentBuild.rawBuild.getCause(hudson.model.Cause$UserIdCause).getUserName()
+                    def agentName = env.NODE_NAME
+
+                    echo "Stage: $stageName - Date and Time: $currentDate"
+                    echo "Executed by: $userName"
+                    echo "Agent: $agentName"
+                }
             }
         }
+
         stage('Install') {
             steps {
-                echo "Install stage executed at ${env.TIMESTAMP} by ${env.USER} on ${env.NODE_NAME}"
+                script {
+                    def stageName = "Install"
+                    def currentDate = new Date()
+                    def userName = currentBuild.rawBuild.getCause(hudson.model.Cause$UserIdCause).getUserName()
+                    def agentName = env.NODE_NAME
+
+                    echo "Stage: $stageName - Date and Time: $currentDate"
+                    echo "Executed by: $userName"
+                    echo "Agent: $agentName"
+                }
             }
         }
+
         stage('Deploy') {
             steps {
-                echo "Deploy stage executed at ${env.TIMESTAMP} by ${env.USER} on ${env.NODE_NAME}"
+                script {
+                    def stageName = "Deploy"
+                    def currentDate = new Date()
+                    def userName = currentBuild.rawBuild.getCause(hudson.model.Cause$UserIdCause).getUserName()
+                    def agentName = env.NODE_NAME
+
+                    echo "Stage: $stageName - Date and Time: $currentDate"
+                    echo "Executed by: $userName"
+                    echo "Agent: $agentName"
+                }
             }
         }
     }
-}
